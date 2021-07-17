@@ -1,0 +1,1 @@
+This is a GraphQL NodeJS project using Apollo-Server-Express

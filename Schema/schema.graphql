@@ -1,0 +1,14 @@
+type User{
+        id: Int
+        title: String
+        name: String
+        email: String
+        gender: String
+    }
+
+    #My Queries:
+    type Query{
+        getAllUsers: [User]
+        getUser(id: Int!): User
+    }
+    #My Mutations:
