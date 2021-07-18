@@ -598,6 +598,13 @@ let users = [{
     "name": "Robert Elbourne",
     "email": "relbourne2r@unicef.org",
     "gender": "Male"
-  }];
+  },
+  {
+    "id": 101,
+    "title": "Eng",
+    "name": "Jalal Hijazi",
+    "email": "jwhijazi@toot.org",
+    "gender": "Male"
+}];
 
   module.exports = {users};

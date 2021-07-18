@@ -4,6 +4,7 @@ type User{
         name: String
         email: String
         gender: String
+        token: String
     }
 
     #My Queries:
@@ -11,4 +12,9 @@ type User{
         getAllUsers: [User]
         getUser(id: Int!): User
     }
+
     #My Mutations:
+    type Mutation{
+        register(email: String!, password: String!, name: String!) : Boolean!
+        login(email: String!, password: String!): User
+    }
