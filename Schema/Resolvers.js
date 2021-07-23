@@ -2,6 +2,7 @@
 const bcrypt = require('bcrypt');
 const {sign} = require('jsonwebtoken');
 const { users } = require('../data');
+const {insertStudent, addStudentToClass, getStudents, insertClass, getClasses, getClassById} = require('../db');
 
 const saltRounds = 10;
 
@@ -13,8 +14,20 @@ const resolvers = {
         getUser(parent, args, {req, res}){
             console.log(req.userId);
             return users.find(u=> u.id == args['id']);
+        },
+        Students(){
+            return getStudents();
+        },
+        Classes(){
+            return getClasses();
         }
     },
+    Student:{
+        class(parent){
+            return getClassById(parent.classId);
+        }
+    },
+
     Mutation:{
         register: async (_, {email, password, name}) =>{
             const hashedPass = await bcrypt.hash(password, saltRounds);
@@ -35,6 +48,20 @@ const resolvers = {
             }
             else
                 return null;
+        },
+
+        addStudent: (_, {student}) =>{
+            var id = insertStudent(student);
+            return id;
+        },
+
+        addStudentToClass: (_, args) =>{
+            var result = addStudentToClass(args['stuId'], args['classId']);
+            return result;
+        },
+
+        addClass: (_,{schClass}) =>{
+            return insertClass(schClass.class, schClass.section);
         }
     }
 }

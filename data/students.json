@@ -1,0 +1,34 @@
+[
+  {
+    "id": "SyenQ7CDRu",
+    "name": "Samer Hijazi",
+    "gender": "M",
+    "address": "Irbid, Queen Nour Street",
+    "hasDisabilities": false,
+    "classId": "HJNNwCwCd"
+  },
+  {
+    "id": "r1CAO0wAu",
+    "name": "Kenan Jalal",
+    "gender": "M",
+    "address": "Irbid, First Circle",
+    "hasDisabilities": false,
+    "classId": "r106LCDA_"
+  },
+  {
+    "id": "BJuWKRPRu",
+    "name": "Masa Faisal",
+    "gender": "F",
+    "address": "Irbid",
+    "hasDisabilities": false,
+    "classId": "r106LCDA_"
+  },
+  {
+    "id": "rJGScAPC_",
+    "name": "Ahmad Refei",
+    "gender": "M",
+    "address": "Amman",
+    "hasDisabilities": true,
+    "classId": "HyuXvRD0d"
+  }
+]

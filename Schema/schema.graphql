@@ -1,4 +1,4 @@
-type User{
+    type User{
         id: Int
         title: String
         name: String
@@ -7,14 +7,51 @@ type User{
         token: String
     }
 
+    type Student{
+        id: String!
+        name: String!
+        gender: String!
+        address: String!
+        hasDisabilities: Boolean!
+        classId: String
+        class: SchoolClass
+    }
+
+    type SchoolClass{
+        id: String
+        class: String
+        section: Int
+    }
+
+    input AddStudentInput{
+        name: String
+        gender: String
+        address: String
+        hasDisabilities: Boolean
+    }
+
+    input addClassInput{
+        class: String
+        section: Int
+    }
+
     #My Queries:
     type Query{
         getAllUsers: [User]
         getUser(id: Int!): User
+        Students: [Student]
+        Classes: [SchoolClass]
     }
 
     #My Mutations:
     type Mutation{
         register(email: String!, password: String!, name: String!) : Boolean!
         login(email: String!, password: String!): User
+
+        #Student:
+        addStudent(student: AddStudentInput!) : ID!
+        addStudentToClass(stuId: String!, classId: String!): String!
+
+        #classes:
+        addClass(schClass: addClassInput): ID!
     }

@@ -25,18 +25,18 @@ async function startApolloServer() {
 
     //Custom middleware:
     app.use((req, res, next) =>{
-        var token = req.headers['authorization'];
-        if(token)
-        {
-            token = token.replace('bearer ', '');
-            var key = process.env.ACCESS_TOKEN_SECRET;
-            try {
-                const jwtPayload = verify(token, key);
-                req.userId = jwtPayload.userId; // This can be used in any of Mutations or Queries  
-            } catch (error) {
-                console.log("Token Not Valid");
-            }
-        }
+        // var token = req.headers['authorization'];
+        // if(token)
+        // {
+        //     token = token.replace('bearer ', '');
+        //     var key = process.env.ACCESS_TOKEN_SECRET;
+        //     try {
+        //         const jwtPayload = verify(token, key);
+        //         req.userId = jwtPayload.userId; // This can be used in any of Mutations or Queries  
+        //     } catch (error) {
+        //         console.log("Token Not Valid");
+        //     }
+        // }
         next();
     });
 
