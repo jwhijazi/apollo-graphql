@@ -1,0 +1,20 @@
+type SchoolClass{
+        id: String!
+        class: String!
+        section: Int!
+        students: [Student]
+    }
+input addClassInput{
+        class: String
+        section: Int
+    }
+
+    #My Queries:
+    extend type Query{
+        Classes: [SchoolClass]
+    }
+
+    #My Mutations:
+    extend type Mutation{
+        addClass(schClass: addClassInput): ID!
+    }

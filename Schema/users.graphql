@@ -1,0 +1,23 @@
+input FilterOperation{
+    eq: String
+    neq: String
+    contains: String
+}
+type User{
+        id: Int
+        title: String
+        name: String
+        email: String
+        gender: String
+        token: String
+    }
+    
+type Query{
+        getAllUsers: [User]
+        getUser(id: Int!): User
+    }
+
+type Mutation{
+        register(email: String!, password: String!, name: String!) : Boolean!
+        login(email: String!, password: String!): User
+    }

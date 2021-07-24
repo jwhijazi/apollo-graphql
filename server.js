@@ -2,14 +2,18 @@ const { ApolloServer } = require('apollo-server-express');
 const express = require('express');
 const cors = require('cors');
 const {verify} = require('jsonwebtoken');
+const {merge} = require('lodash');
 const { typeDefs } = require('./Schema/TypeDefs');
-const { resolvers } = require('./Schema/Resolvers');
+//const { resolvers } = require('./Schema/Resolvers');
+const { resolvers: usersResolvers } = require('./Schema/resolvers/users.resolvers');
+const { resolvers: studentsResolvers } = require('./Schema/resolvers/student.resolver');
+const { resolvers: classesResolvers } = require('./Schema/resolvers/class.resolver');
 
 async function startApolloServer() {
     //Define Apollo Server
     const server = new ApolloServer({ 
         typeDefs: typeDefs, 
-        resolvers: resolvers,
+        resolvers: merge({}, usersResolvers, studentsResolvers, classesResolvers),//resolvers,
         context: ({req, res}) => ({req, res})
     });
     await server.start();

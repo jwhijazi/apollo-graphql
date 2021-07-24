@@ -36,11 +36,16 @@ function getClassById(classId){
     return classes.get(classId);
 }
 
+function getStudentsInClass(classId){
+    return students.list().filter(s=> s.classId == classId);
+}
+
 module.exports = {
     insertStudent,
     addStudentToClass,
     getStudents,
     insertClass,
     getClasses,
-    getClassById
+    getClassById,
+    getStudentsInClass
 }

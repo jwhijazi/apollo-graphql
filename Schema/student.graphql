@@ -1,0 +1,32 @@
+type Student{
+        id: String!
+        name: String!
+        gender: String!
+        address: String!
+        hasDisabilities: Boolean!
+        classId: String
+        class: SchoolClass
+    }
+
+input AddStudentInput{
+        name: String
+        gender: String
+        address: String
+        hasDisabilities: Boolean
+    }
+
+input StudentFilterInput{
+    name: FilterOperation
+    gender: FilterOperation
+    hasDisabilities: FilterOperation
+}
+
+extend type Query{
+        Students: [Student]
+        StudentsBy(filter: StudentFilterInput!): [Student]
+    }
+
+extend type Mutation{
+        addStudent(student: AddStudentInput!) : ID!
+        addStudentToClass(stuId: String!, classId: String!): String!
+    }
